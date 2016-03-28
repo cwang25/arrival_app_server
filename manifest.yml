@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: arrivalMobileApp
+  host: arrivalmobileapp
+  disk_quota: 1024M
+  services:
+  - arrivalMobileApp-AdvancedMobileAccess
+  - arrivalMobileApp-imfpush
+  - arrivalMobileApp-cloudantNoSQLDB

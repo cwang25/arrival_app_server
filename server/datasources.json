@@ -1,6 +1,9 @@
 {
   "db": {
-    "name": "db",
-    "connector": "memory"
+    "name": "arrivalMobileApp-cloudantNoSQLDB",
+    "connector": "cloudant",
+    "username": "828ae6b0-5855-4cdb-9bc9-75bf1dfcd4fc-bluemix",
+    "password": "6e8e6cc028b1f6e80bc4db9fc0d1f3909ced3abbff79319ca4a869bb6ac64130",
+    "database": "arrivalTest"
   }
 }

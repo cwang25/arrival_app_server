@@ -1,18 +1,14 @@
 {
-  "name": "Item",
+  "name": "PassCodeToken",
   "base": "PersistedModel",
   "strict": false,
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "text": {
-      "type": "string",
-      "required": true
-    },
-    "isDone": {
-      "type": "boolean",
+    "passcode": {
+      "type": "number",
       "required": true
     }
   },

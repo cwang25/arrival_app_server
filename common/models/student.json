@@ -25,7 +25,7 @@
     },
     "gender":{
       "type":"string",
-      "required":false
+      "required":true
     },
     "first_language":{
       "type":"string",
@@ -37,7 +37,7 @@
     },
     "dietary_restriction:":{
       "type":"string",
-      "required":false
+      "required":true
     },
     "interest_expertise":{
       "type":"string",

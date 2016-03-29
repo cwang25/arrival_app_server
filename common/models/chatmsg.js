@@ -1,3 +1,6 @@
 /**
- * Created by hanswang on 3/29/16.
+ * Created by hanswang on 3/28/16.
  */
+module.exports = function(Chatmsg) {
+
+};

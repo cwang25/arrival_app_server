@@ -1,0 +1,75 @@
+{
+  "name": "Student",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "school_email":{
+      "type": "string",
+      "required": true
+    },
+    "password":{
+      "type":"string",
+      "required":true
+    },
+    "first_name":{
+      "type":"string",
+      "required":true
+    },
+    "last_name":{
+      "type":"string",
+      "required":true
+    },
+    "gender":{
+      "type":"string",
+      "required":false
+    },
+    "first_language":{
+      "type":"string",
+      "required":false
+    },
+    "nationality":{
+      "type":"string",
+      "required":false
+    },
+    "dietary_restriction:":{
+      "type":"string",
+      "required":false
+    },
+    "interest_expertise":{
+      "type":"string",
+      "required":false
+    },
+    "club_participated":{
+      "type":"string",
+      "required":false
+    },
+    "favorite_class":{
+      "type":"string",
+      "required":false
+    },
+    "recent_concern":{
+      "type":"string",
+      "required":false
+    },
+    "something_want_to_try_in_future":{
+      "type":"string",
+      "required":false
+    },
+    "sleep_time":{
+      "type":"number",
+      "required":false
+    },
+    "wakeup_time":{
+      "type":"number",
+      "required":false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

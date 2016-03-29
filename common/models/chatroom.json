@@ -1,5 +1,5 @@
 {
-  "name": "Item",
+  "name": "Chatroom",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": true,
@@ -7,13 +7,17 @@
     "validateUpsert": true
   },
   "properties": {
-    "text": {
+    "chatter1": {
       "type": "string",
       "required": true
     },
-    "isDone": {
+    "chatter2": {
       "type": "boolean",
       "required": true
+    },
+    "chatmsg":{
+      "type": "array",
+      "required": false
     }
   },
   "validations": [],

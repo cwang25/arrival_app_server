@@ -46,7 +46,7 @@ module.exports = function(Student) {
   //}
   Student.getTestStudent = function(cb){
     //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });
-    Student.find({where: {first_name: 'Test_First_Name'}}, function(err, instance){
+    Student.find({where: {first_name: 'Hans'}}, function(err, instance){
       var response;
       response = instance;
       cb(null, response);

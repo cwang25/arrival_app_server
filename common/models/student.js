@@ -46,10 +46,12 @@ module.exports = function(Student) {
   //}
   Student.getTestStudent = function(cb){
     //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });
-    var response = Student.find({where: {name: 'Test_First_Name'}}, function(err, accounts){
-      console.log("hi");
+    Student.find({where: {first_name: 'Test_First_Name'}}, function(err, instance){
+      var response;
+      response = instance;
+      cb(null, response);
+      console.log(response);
     });
-    cb(null, response);
   };
 
   Student.remoteMethod(

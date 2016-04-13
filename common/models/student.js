@@ -68,7 +68,7 @@ module.exports = function(Student) {
     'getTestStudent',
     {
       http: {path: '/getTestStudent', verb: 'get'},
-      returns: {arg: 'Test_students', type: 'string'}
+      returns: {type: 'array', root: true}
     }
   );
   Student.remoteMethod(
@@ -76,7 +76,7 @@ module.exports = function(Student) {
     {
       http: {path: '/getStudentBySchoolID', verb: 'get'},
       accepts: {arg:'school_id', type: 'number'},
-      returns: {arg: 'Test_students', type: 'string'}
+      returns: {type: 'array', root: true}
     }
   );
 };

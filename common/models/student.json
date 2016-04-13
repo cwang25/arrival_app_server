@@ -11,6 +11,10 @@
       "type": "string",
       "required": true
     },
+    "school_id":{
+      "type" : "number",
+      "required": true
+    },
     "password":{
       "type":"string",
       "required":true

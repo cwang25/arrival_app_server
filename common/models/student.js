@@ -46,7 +46,17 @@ module.exports = function(Student) {
   //}
   Student.getTestStudent = function(cb){
     //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });
-    Student.find({where: {first_name: 'Hans'}}, function(err, instance){
+    Student.find({where: {gender: 'male'}}, function(err, instance){
+      var response;
+      response = instance;
+      cb(null, response);
+      console.log(response);
+    });
+  };
+
+  Student.getStudentBySchoolID = function(school_id,cb){
+    //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });
+    Student.find({where: {school_id: school_id}}, function(err, instance){
       var response;
       response = instance;
       cb(null, response);
@@ -58,6 +68,14 @@ module.exports = function(Student) {
     'getTestStudent',
     {
       http: {path: '/getTestStudent', verb: 'get'},
+      returns: {arg: 'Test_students', type: 'string'}
+    }
+  );
+  Student.remoteMethod(
+    'getStudentBySchoolID',
+    {
+      http: {path: '/getStudentBySchoolID', verb: 'get'},
+      accepts: {arg:'school_id', type: 'number'},
       returns: {arg: 'Test_students', type: 'string'}
     }
   );

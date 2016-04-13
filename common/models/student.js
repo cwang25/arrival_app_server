@@ -63,7 +63,13 @@ module.exports = function(Student) {
       console.log(response);
     });
   };
-
+  Student.removeAllStudents = function(cd){
+    Student.destroyAll(function(err, info){
+      response = info;
+      cb(null, response);
+      console.log(response);
+    });
+  };
   Student.remoteMethod(
     'getTestStudent',
     {
@@ -77,6 +83,13 @@ module.exports = function(Student) {
       http: {path: '/getStudentBySchoolID', verb: 'get'},
       accepts: {arg:'school_id', type: 'number'},
       returns: {type: 'array', root: true}
+    }
+  );
+  Student.remoteMethod(
+    'removeAllStudents',
+    {
+      http: {path: '/removeAllStudents', verb: 'get'},
+      returns: {arg:'result', type: 'string'}
     }
   );
 };

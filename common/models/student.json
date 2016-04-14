@@ -39,7 +39,7 @@
       "type":"string",
       "required":false
     },
-    "dietary_restriction:":{
+    "dietary_restriction":{
       "type":"string",
       "required":true
     },

@@ -27,6 +27,19 @@ app.delete('/api/Items/:id', passport.authenticate('mca-backend-strategy', {sess
 app.get('/protected', passport.authenticate('mca-backend-strategy', {session: false}), function(req, res){
 	res.send("Hello, this is a protected resouce of the mobile backend application!");
 });
+
+// testing routes
+
+app.get('/test',function(req,res){
+    
+    res.send('test succesfull');
+    
+    
+    
+});
+
+//ends here
+
 // ------------ Protecting backend APIs with Mobile Client Access end -----------------
 
 app.start = function () {

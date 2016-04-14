@@ -11,6 +11,10 @@
       "type": "string",
       "required": true
     },
+    "school_id":{
+      "type" : "number",
+      "required": true
+    },
     "password":{
       "type":"string",
       "required":true
@@ -35,7 +39,7 @@
       "type":"string",
       "required":false
     },
-    "dietary_restriction:":{
+    "dietary_restriction":{
       "type":"string",
       "required":true
     },

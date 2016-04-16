@@ -65,7 +65,7 @@ module.exports = function(Student) {
   Student.remoteMethod(
     'authenticateUser',
     {
-      heep: {path: '/authenticateUser', verb: 'get'},
+      http: {path: '/authenticateUser', verb: 'get'},
       accepts:{ arg: 'credential', type: 'object', http: { source: 'body' } },
       returns:{arg:'id',type:'string'}
     }

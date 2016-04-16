@@ -66,7 +66,7 @@ module.exports = function(Student) {
     'authenticateUser',
     {
       http: {path: '/authenticateUser', verb: 'get'},
-      accepts:{ arg: 'credential', type: 'object', http: { source: 'body' } },
+      accepts:{ arg: 'credential', type: 'string', http: { source: 'body' } },
       returns:{arg:'id',type:'string'}
     }
   );

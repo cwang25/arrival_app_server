@@ -52,9 +52,8 @@ module.exports = function(Student) {
   };
 
   Student.authenticateUser = function(credential, cb){
-    var json = JSON.parse(credential);
-    var username = json.username;
-    var pw = json.password;
+    var username = credential.username;
+    var pw = credential.password;
     Student.findOne({where:{school_email:username, password: pw}, field:{id:true}},function(err, instance){
       var response;
       response = instance;
@@ -66,7 +65,7 @@ module.exports = function(Student) {
     'authenticateUser',
     {
       http: {path: '/authenticateUser', verb: 'get'},
-      accepts:{ arg: 'credential', type: 'string', http: { source: 'body' } },
+      accepts:{ arg: 'credential', type: 'object', http: { source: 'body' } },
       returns:{arg:'id',type:'string'}
     }
   );

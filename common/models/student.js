@@ -51,7 +51,10 @@ module.exports = function(Student) {
     });
   };
 
-  Student.authenticateUser = function(username, pw, cb){
+  Student.authenticateUser = function(credential, cb){
+    var json = JSON.parse(credential);
+    var username = json.username;
+    var pw = json.password;
     Student.findOne({where:{username:username, password: pw}, field:{id:true}},function(err, instance){
       var response;
       response = instance;
@@ -63,8 +66,7 @@ module.exports = function(Student) {
     'authenticateUser',
     {
       heep: {path: '/authenticateUser', verb:'get'},
-      accepts:[{ arg: 'username', type: 'string', http: { source: 'body' } },
-        { arg: 'pw', type: 'string', http:{source:'body'}}],
+      accepts:{ arg: 'credential', type: 'string', http: { source: 'body' } },
       returns:{arg:'id',type:'string'}
     }
   );

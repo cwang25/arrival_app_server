@@ -50,6 +50,24 @@ module.exports = function(Student) {
       console.log(response);
     });
   };
+
+  Student.authenticateUser = function(username, pw, cb){
+    Student.findOne({where:{username:username, password: pw}, field:{id:true}},function(err, instance){
+      var response;
+      response = instance;
+      cb(null, response);
+      console.log(response);
+    });
+  };
+  Student.remoteMethod(
+    'authenticateUser',
+    {
+      heep: {path: '/loginUser', verb:'get'},
+      accepts:{ arg: 'username', type: 'string', http: { source: 'body' } },
+      accepts:{ arg: 'pw', type: 'string', http:{source:'body'}},
+      returns:{arg:'id',type:'string'}
+    }
+  );
   Student.remoteMethod(
     'getTestStudent',
     {

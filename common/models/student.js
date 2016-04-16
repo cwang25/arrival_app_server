@@ -54,7 +54,7 @@ module.exports = function(Student) {
   Student.authenticateUser = function(credential, cb){
     var username = credential.username;
     var pw = credential.password;
-    Student.findOne({where:{school_email:username, password: pw}, fields:{id:true}},function(err, instance){
+    Student.findOne({where: {and: [{school_email:username}, {password: pw}]}, fields:{id:true}},function(err, instance){
       var response;
       response = instance;
       cb(null, response);

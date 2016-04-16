@@ -55,7 +55,7 @@ module.exports = function(Student) {
     var json = JSON.parse(credential);
     var username = json.username;
     var pw = json.password;
-    Student.findOne({where:{username:username, password: pw}, field:{id:true}},function(err, instance){
+    Student.findOne({where:{school_email:username, password: pw}, field:{id:true}},function(err, instance){
       var response;
       response = instance;
       cb(null, response);
@@ -65,7 +65,7 @@ module.exports = function(Student) {
   Student.remoteMethod(
     'authenticateUser',
     {
-      heep: {path: '/authenticateUser', verb:'get'},
+      heep: {path: '/authenticateUser', verb: 'get'},
       accepts:{ arg: 'credential', type: 'string', http: { source: 'body' } },
       returns:{arg:'id',type:'string'}
     }

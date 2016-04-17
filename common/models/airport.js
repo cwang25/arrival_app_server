@@ -20,7 +20,7 @@ module.exports = function(Student) {
     ],
     "sort": [
       {
-        "_id:string": "asc"
+        "hh:Number": "asc"  //hh is supposed to be the variable which carries the hour after which the student arrives
       }
     ]
   };
@@ -44,4 +44,8 @@ module.exports = function(Student) {
 };
 
 
+///-----------------------------------------------------------------------------
+//Do not know how to modify the above code
+
 var slotsToday = [];
+

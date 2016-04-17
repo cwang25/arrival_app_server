@@ -32,11 +32,10 @@ app.get('/protected', passport.authenticate('mca-backend-strategy', {session: fa
 
 app.get('/test',function(req,res){
     
-    res.send('test succesfull');
     
-    
-    
+    res.send('test succesfull');    
 });
+
 
 //ends here
 

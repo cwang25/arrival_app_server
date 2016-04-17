@@ -56,7 +56,7 @@ module.exports = function(Student) {
   };
 
   Student.authenticateUser = function(credential, cb){
-    var un = credential.username;
+    var un = credential.school_email;
     var pw = credential.password;
     console.log('received body: '+ JSON.stringify(credential));
     console.log('received: '+un+' and '+pw);
@@ -71,10 +71,7 @@ module.exports = function(Student) {
     'authenticateUser',
     {
       http: {path: '/authenticateUser', verb: 'get'},
-      accepts:{ arg: 'credential', type: {
-        "username": "string",
-        "password": "string"
-      }, http: { source: 'body' } },
+      accepts:{ arg: 'credential', type:'Student', http: { source: 'body' } },
       returns:{type:'object', root:true}
     }
   );

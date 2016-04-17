@@ -58,7 +58,7 @@ module.exports = function(Student) {
   Student.authenticateUser = function(credential, cb){
     var un = credential.username;
     var pw = credential.password;
-    console.log('received body: '+ String(credential));
+    console.log('received body: '+ JSON.stringify(credential));
     console.log('received: '+un+' and '+pw);
     Student.findOne({where: {and: [{school_email:un}, {password: pw}]}, fields:{id:true}},function(err, instance){
       var response;

@@ -50,6 +50,27 @@ module.exports = function(Student) {
       console.log(response);
     });
   };
+
+  Student.authenticateUser = function(credential, cb){
+    var un = credential.username;
+    var pw = credential.password;
+    console.log(credential);
+    console.log('received: '+un+' and '+pw);
+    Student.findOne({where: {and: [{school_email:un}, {password: pw}]}, fields:{id:true}},function(err, instance){
+      var response;
+      response = instance;
+      cb(null, response);
+      console.log(response);
+    });
+  };
+  Student.remoteMethod(
+    'authenticateUser',
+    {
+      http: {path: '/authenticateUser', verb: 'get'},
+      accepts:{ arg: 'credential', type: 'object', http: { source: 'body' } },
+      returns:{type:'object', root:true}
+    }
+  );
   Student.remoteMethod(
     'getTestStudent',
     {

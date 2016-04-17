@@ -37,7 +37,7 @@ module.exports = function(Student) {
     //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });
     //Safety check
     if(school_id == undefined){
-      school_id = '';
+      school_id = -1;
     }
     Student.find({where: {school_id: school_id}}, function(err, instance){
       var response;
@@ -56,10 +56,10 @@ module.exports = function(Student) {
   };
 
   Student.authenticateUser = function(credential, cb){
-    var un = credential.school_email;
-    var pw = credential.password;
     console.log('received body: '+ JSON.stringify(credential));
     console.log('received: '+un+' and '+pw);
+    var un = credential.school_email;
+    var pw = credential.password;
     Student.findOne({where: {and: [{school_email:un}, {password: pw}]}, fields:{id:true}},function(err, instance){
       var response;
       response = instance;

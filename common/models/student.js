@@ -58,8 +58,8 @@ module.exports = function(Student) {
   Student.authenticateUser = function(credential, cb){
     console.log('received body: '+ JSON.stringify(credential));
     console.log('received: '+un+' and '+pw);
-    var un = credential.school_email;
-    var pw = credential.password;
+    var un = credential.body.school_email;
+    var pw = credential.body.password;
     Student.findOne({where: {and: [{school_email:un}, {password: pw}]}, fields:{id:true}},function(err, instance){
       var response;
       response = instance;
@@ -71,7 +71,16 @@ module.exports = function(Student) {
     'authenticateUser',
     {
       http: {path: '/authenticateUser', verb: 'get'},
-      accepts:{ arg: 'credential', type:'object', http: { source: 'form' } },
+      accepts:{ arg: 'credential', type:'object', http: function(ctx) {
+        // ctx is LoopBack Context object
+
+        // 1. Get the HTTP request object as provided by Express
+        var req = ctx.req;
+
+        // 2. Get 'a' and 'b' from query string or form data
+        // and return their sum as the value
+        return req;
+      }},
       returns:{type:'object', root:true}
     }
   );

@@ -70,8 +70,8 @@ module.exports = function(Student) {
   Student.remoteMethod(
     'authenticateUser',
     {
-      http: {path: '/authenticateUser', verb: 'get'},
-      accepts:{arg: 'credential', type:'object'},
+      http: {path: '/authenticateUser', verb: 'post'},
+      accepts:{arg: 'credential', type:'object', http: { source: 'body' } },
       returns:{type:'object', root:true}
     }
   );

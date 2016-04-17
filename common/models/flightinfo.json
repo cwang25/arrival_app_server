@@ -1,0 +1,27 @@
+{
+  "name": "FlightInfo",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "student_id": {
+      "type": "string",
+      "required": true
+    },
+    "departure_time": {
+      "type": "string",
+      "required": true
+    },
+    "arrival_time":{
+      "type":"string",
+      "required":true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

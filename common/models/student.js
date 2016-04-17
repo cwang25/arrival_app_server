@@ -35,6 +35,10 @@ module.exports = function(Student) {
 
   Student.getStudentBySchoolID = function(school_id,cb){
     //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });
+    //Safety check
+    if(school_id == undefined){
+      school_id = '';
+    }
     Student.find({where: {school_id: school_id}}, function(err, instance){
       var response;
       response = instance;
@@ -67,7 +71,7 @@ module.exports = function(Student) {
     'authenticateUser',
     {
       http: {path: '/authenticateUser', verb: 'get'},
-      accepts:{ arg: 'credential', type: 'object', http: { source: 'body' } },
+      accepts:{ arg: 'credential', type: 'string', http: { source: 'body' } },
       returns:{type:'object', root:true}
     }
   );

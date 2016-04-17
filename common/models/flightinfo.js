@@ -5,7 +5,7 @@ module.exports = function(flightinfo){
                                 arrivalTime: time}}, function(err, instance){
             var response;
             response = instance;
-            cb(null response);
+            cb(null, response);
             console.log(response);
         }); 
     };

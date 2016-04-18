@@ -56,7 +56,7 @@
     "$promise":{},
     "$resolved":true
   },
-  "flightinfo":{
+  "FlightInfo":{
     "dataSource":"db",
     "public":true,
     "$promise":{},

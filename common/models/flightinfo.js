@@ -1,6 +1,6 @@
-module.exports = function(flightinfo){
+module.exports = function(FlightInfo){
     
-    flightinfo.getStudentsByTime = function(date, time, cb){
+    FlightInfo.getStudentsByTime = function(date, time, cb){
         flightinfo.find({where: {departureDate: date,
                                 arrivalTime: time}}, function(err, instance){
             var response;
@@ -10,7 +10,7 @@ module.exports = function(flightinfo){
         }); 
     };
     
-    flightinfo.removeAllFlightInfo = function(cb){
+    FlightInfo.removeAllFlightInfo = function(cb){
         flightinfo.destroyAll(function(err, info){
             var response;
             response = instance;
@@ -19,7 +19,7 @@ module.exports = function(flightinfo){
         });
     };
     
-    flightinfo.remoteMethod(
+    FlightInfo.remoteMethod(
         'getStudentsByTime',
         {
             http: {path: '/getStudentsByTime', verb: 'get'},
@@ -28,7 +28,7 @@ module.exports = function(flightinfo){
         }
     );
     
-    flightinfo.remoteMethod(
+    FlightInfo.remoteMethod(
         'removeAllFlightInfo',
         {
             http: {path: '/removeAllFlightInfo', verb: 'get'},

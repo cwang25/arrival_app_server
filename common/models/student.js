@@ -32,6 +32,14 @@ module.exports = function(Student) {
       console.log(response);
     });
   };
+    
+  Student.getEmail = function(id, cb){
+      Student.find({where: {id: id}}, function(err, instance){
+      var response;
+      response = instance;
+      cb(null, response);
+      console.log(response); 
+  });
 
   Student.getStudentBySchoolID = function(school_id,cb){
     //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });
@@ -68,6 +76,7 @@ module.exports = function(Student) {
       console.log(response);
     });
   };
+    
   Student.remoteMethod(
     'authenticateUser',
     {
@@ -98,4 +107,14 @@ module.exports = function(Student) {
       returns: {arg:'result', type: 'string'}
     }
   );
+      
+  Student.remoteMethod(
+    'getEmail',
+      {
+          http: {path: '/getEmail', verb: 'get'},
+          accepts: {arg: 'id', type: 'string'},
+          returns: {type: 'string', root: true}
+      }
+  );
+      
 };

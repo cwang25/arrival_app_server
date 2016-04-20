@@ -22,14 +22,14 @@ module.exports = function(FlightInfo){
 	// Testing Airport Pickup
 		
 	FlightInfo.getMatches = function(details, cb){
-		console.log('data from client: ' +JSON.stringify(details))
+		console.log('data from client: ' +details);
     };
 		
 	FlightInfo.remoteMethod(
         'getMatches',
         {
             http: {path: '/getMatches', verb: 'post'},
-            accepts: {arg: 'details', type: 'object', http: { source: 'body' } },
+            accepts: {arg: 'details', type: 'object'},
             returns: {type: 'object', root: true}
         }
     );

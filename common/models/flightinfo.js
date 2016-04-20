@@ -18,6 +18,15 @@ module.exports = function(FlightInfo){
             console.log(response);
         });
     };
+	
+	// Testing Airport Pickup
+	
+	FlightInfo.getMatches = function(bean, cb){
+		console.log('flight message:' +JSON.stringify(cb));
+		
+	}
+	
+	// Airport Pickup Ends
     
     FlightInfo.remoteMethod(
         'getStudentsByTime',

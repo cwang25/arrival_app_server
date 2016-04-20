@@ -20,11 +20,19 @@ module.exports = function(FlightInfo){
     };
 	
 	// Testing Airport Pickup
-	
-	FlightInfo.getMatches = function(bean, cb){
-		console.log('flight message:' +JSON.stringify(cb));
 		
-	}
+	FlightInfo.getMatches = function(details, cb){
+		console.log('data from client: ' +JSON.stringify(details))
+    };
+		
+	FlightInfo.remoteMethod(
+        'getMatches',
+        {
+            http: {path: '/getMatches', verb: 'post'},
+            accepts: {arg: 'details', type: 'object', http: { source: 'body' } },
+            returns: {type: 'object', root: true}
+        }
+    );
 	
 	// Airport Pickup Ends
     

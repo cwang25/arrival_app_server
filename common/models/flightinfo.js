@@ -22,7 +22,7 @@ module.exports = function(FlightInfo){
 	// Testing Airport Pickup
 		
 	FlightInfo.getMatches = function(details, cb){
-		console.log('data from client: ' +details['flightNum']);
+		console.log('Client Data: ' +details['flightNum']);
     };
 		
 	FlightInfo.remoteMethod(

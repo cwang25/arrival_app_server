@@ -29,7 +29,7 @@ module.exports = function(FlightInfo){
         'getMatches',
         {
             http: {path: '/getMatches', verb: 'post'},
-            accepts: {arg: 'details', type: 'object'},
+            accepts: {arg: 'details', type: 'object', http: { source: 'body' }},
             returns: {type: 'object', root: true}
         }
     );

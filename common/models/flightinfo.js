@@ -23,6 +23,17 @@ module.exports = function(FlightInfo){
 		
 	FlightInfo.getMatches = function(details, cb){
 		console.log('Client Data: ' +details['flightNum']);
+		
+		var fltNum = details['flightNum'];
+		var fltDate = details['flightDate'];
+
+		FlightInfo.findOne({where: {and: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{id:true}},function(err, instance){
+			var response;
+			response = instance;
+			cb(null, response);
+			console.log("Flight Server Response: " +response);
+		});
+		
     };
 		
 	FlightInfo.remoteMethod(

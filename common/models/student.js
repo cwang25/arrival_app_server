@@ -31,7 +31,7 @@ module.exports = function(Student) {
       cb(null, response);
       console.log(response);
     });
-  };
+  };	
 
   Student.getStudentBySchoolID = function(school_id,cb){
     //Account.find({where: {name: 'John'}, limit: 3}, function(err, accounts) { ... });

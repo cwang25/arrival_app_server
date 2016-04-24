@@ -55,7 +55,7 @@ module.exports = function(FlightInfo){
 			var response;
 			response = instance;
 			cb(null, response);
-			console.log("Flight ID response " +response);
+			console.log("Flight ID response " +response.toString());
 		});
 		
     };
@@ -65,7 +65,7 @@ module.exports = function(FlightInfo){
         {
             http: {path: '/getFlightIDByStudentID', verb: 'get'},
             accepts: {arg: 'stud_id', type: 'string'},
-            returns: {type: 'String', root: true}
+            returns: {type: 'object', root: true}
         }
     );
 	

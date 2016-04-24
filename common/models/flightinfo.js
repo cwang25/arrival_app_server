@@ -55,7 +55,7 @@ module.exports = function(FlightInfo){
 			var response;
 			response = instance;
 			cb(null, response);
-			console.log("Flight ID response " +response.toString());
+			console.log("Flight ID response " +response);
 		});
 		
     };

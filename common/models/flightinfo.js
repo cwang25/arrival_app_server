@@ -65,7 +65,7 @@ module.exports = function(FlightInfo){
         {
             http: {path: '/getFlightIDByStudentID', verb: 'get'},
             accepts: {arg: 'stud_id', type: 'string'},
-            returns: {type: 'array', root: true}
+            returns: {type: 'String', root: true}
         }
     );
 	

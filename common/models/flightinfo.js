@@ -72,9 +72,10 @@ module.exports = function(FlightInfo){
 	
 	// getFlightBuddies Starts
 	
-	FlightInfo.getFlightDateByFlightID = function(flight_info, cb){	
+	FlightInfo.getFlightDateByFlightID = function(flight_info, cb){		
+	
 		var fltNum = flight_info['flight_number'];
-		var stdID = flight_info['student_id'];
+		var fltDate = flight_info['flight_date'];
 		
 		console.log("FLIGHT NUMBER: " +fltNum);
 		console.log("FLIGHT DATE: " +fltDate);
@@ -83,7 +84,7 @@ module.exports = function(FlightInfo){
 			var response;
 			response = instance;
 			cb(null, response);
-			console.log("Flight Buddies: " +response);
+			console.log("Flight Server Response: " +response);
 		});
     };
 	

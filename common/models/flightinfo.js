@@ -79,13 +79,13 @@ module.exports = function(FlightInfo){
 		
 		console.log("FLIGHT NUMBER: " +fltNum);
 		console.log("FLIGHT DATE: " +fltDate);
-		FlightInfo.find({where: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{student_id:true}, function(err, instance){
+		/*FlightInfo.find({where: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{student_id:true}, function(err, instance){
 			//FlightInfo.find({where: {and: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{student_id:true}},function(err, instance){
 			var response;
 			response = instance;
 			cb(null, response);
 			console.log("Flight Server Response: " +response);
-		});
+		}); */
     };
 	
 	FlightInfo.remoteMethod(

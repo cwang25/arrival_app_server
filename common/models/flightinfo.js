@@ -68,6 +68,39 @@ module.exports = function(FlightInfo){
 	
 	// getFlightDateByFlightID Ends
 	
+	
+	
+	// getFlightBuddies Starts
+	
+	FlightInfo.getFlightDateByFlightID = function(flight_info, cb){	
+		var fltNum = flight_info['flight_number'];
+		var stdID = flight_info['student_id'];
+		
+		console.log("FLIGHT NUMBER: " +fltNum);
+		console.log("FLIGHT DATE: " +fltDate);
+		
+		FlightInfo.find({where: {and: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{id:true}},function(err, instance){
+			var response;
+			response = instance;
+			cb(null, response);
+			console.log("Flight Buddies: " +response);
+		});
+    };
+	
+	FlightInfo.remoteMethod(
+        'getFlightDateByFlightID',
+        {
+            http: {path: '/getFlightBuddies', verb: 'get'},
+            accepts: {arg: 'flight_info', type: 'object'},
+            returns: {type: 'array', root: true}
+        }
+    );
+	
+	// getFlightBuddies Ends
+	
+	
+	
+	
 	// Airport Pickup Ends
 
 	FlightInfo.getFlightIDByStudentID = function(stud_id, cb){

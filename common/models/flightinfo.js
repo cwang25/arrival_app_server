@@ -62,7 +62,7 @@ module.exports = function(FlightInfo){
         {
             http: {path: '/getFlightDateByFlightID', verb: 'get'},
             accepts: {arg: 'flight_id', type: 'string'},
-            returns: {type: 'object', root: true}
+            returns: {type: 'string', root: true}
         }
     );
 	

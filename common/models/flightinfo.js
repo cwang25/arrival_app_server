@@ -85,7 +85,7 @@ module.exports = function(FlightInfo){
 			response = instance;
 			cb(null, response);
 			console.log("Flight Server Response: " +response);
-		}); */
+		}); 
     };
 	
 	FlightInfo.remoteMethod(

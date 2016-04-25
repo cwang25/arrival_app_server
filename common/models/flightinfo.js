@@ -72,7 +72,7 @@ module.exports = function(FlightInfo){
 	
 	// getFlightBuddies Starts
 	
-	FlightInfo.getFlightDateByFlightID = function(flight_info, cb){		
+	FlightInfo.getFlightBuddies = function(flight_info, cb){		
 	
 		var fltNum = flight_info['flight_number'];
 		var fltDate = flight_info['flight_date'];
@@ -89,7 +89,7 @@ module.exports = function(FlightInfo){
     };
 	
 	FlightInfo.remoteMethod(
-        'getFlightDateByFlightID',
+        'getFlightBuddies',
         {
             http: {path: '/getFlightBuddies', verb: 'get'},
             accepts: {arg: 'flight_info', type: 'object'},

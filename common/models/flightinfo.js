@@ -46,6 +46,28 @@ module.exports = function(FlightInfo){
     );
 	
 	
+	// getFlightDateByFlightID Starts
+	
+	FlightInfo.getFlightDateByFlightID = function(flight_id, cb){		
+		FlightInfo.findOne({where: {and: [{id:flight_id}]}, fields:{flight_date:true}},function(err, instance){
+			var response;
+			response = instance;
+			cb(null, response);
+			console.log("Flight Server Response: " +response);
+		});		
+    };
+	
+	FlightInfo.remoteMethod(
+        'getFlightDateByFlightID',
+        {
+            http: {path: '/getFlightDateByFlightID', verb: 'get'},
+            accepts: {arg: 'flight_id', type: 'string'},
+            returns: {type: 'object', root: true}
+        }
+    );
+	
+	// getFlightDateByFlightID Ends
+	
 	// Airport Pickup Ends
 
 	FlightInfo.getFlightIDByStudentID = function(stud_id, cb){

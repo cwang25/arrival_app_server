@@ -49,7 +49,7 @@ module.exports = function(FlightInfo){
 	// getFlightDateByFlightID Starts
 	
 	FlightInfo.getFlightDateByFlightID = function(flight_id, cb){		
-		FlightInfo.findOne({where: {and: [{id:flight_id}]}, fields:{flight_date:true}},function(err, instance){
+		FlightInfo.findOne({where: {and: [{id:flight_id}]}, fields:[{flight_date:true},{flight_number:true}]},function(err, instance){
 			var response;
 			response = instance;
 			cb(null, response);

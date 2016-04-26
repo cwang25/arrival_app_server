@@ -93,36 +93,11 @@ module.exports = function(FlightInfo){
         {
             http: {path: '/getFlightBuddies', verb: 'get'},
             accepts: {arg: 'flight_info', type: 'object'},
-            returns: {type: 'array', root: true}
+            returns: {type: 'string', root: true}
         }
     );
 	
 	// getFlightBuddies Ends
-	
-	// getFlightNumberByFlightID Starts
-	
-		FlightInfo.getFlightNumberByFlightID = function(flight_id, cb){
-		console.log('Flight ID in getFlightNumberByFlightID method ' +flight_id);
-		
-		FlightInfo.findOne({where: {and: [{id:flight_id}]}, fields:{flight_number:true}},function(err, instance){
-			var response;
-			response = instance;
-			cb(null, response);
-			console.log("Flight Number response " +response);
-		});
-		
-    };
-	
-	FlightInfo.remoteMethod(
-        'getFlightNumberByFlightID',
-        {
-            http: {path: '/getFlightNumberByFlightID', verb: 'get'},
-            accepts: {arg: 'flight_id', type: 'string'},
-            returns: {type: 'object', root: true}
-        }
-    );
-	
-	// getFlightNumberByFlightID Ends
 	
 	
 	// Airport Pickup Ends

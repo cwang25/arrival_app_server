@@ -92,7 +92,7 @@ module.exports = function(FlightInfo){
         'getFlightBuddies',
         {
             http: {path: '/getFlightBuddies', verb: 'get'},
-            accepts: {arg: 'flight_info', type: 'object'},
+            accepts: {arg: 'flight_info', type: 'object', http: { source: 'body' } },
             returns: {type: 'array', root: true}
         }
     );

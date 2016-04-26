@@ -46,9 +46,9 @@ module.exports = function(FlightInfo){
     );
 	
 	
-	// getFlightDateByFlightID Starts
+	// getFlightDateNumberByFlightID Starts
 	
-	FlightInfo.getFlightDateByFlightID = function(flight_id, cb){		
+	FlightInfo.getFlightDateNumberByFlightID = function(flight_id, cb){		
 		FlightInfo.findOne({where: {and: [{id:flight_id}]}, fields:{flight_date:true,flight_number:true}},function(err, instance){
 			var response;
 			response = instance;
@@ -58,15 +58,15 @@ module.exports = function(FlightInfo){
     };
 	
 	FlightInfo.remoteMethod(
-        'getFlightDateByFlightID',
+        'getFlightDateNumberByFlightID',
         {
-            http: {path: '/getFlightDateByFlightID', verb: 'get'},
+            http: {path: '/getFlightDateNumberByFlightID', verb: 'get'},
             accepts: {arg: 'flight_id', type: 'string'},
             returns: {type: 'string', root: true}
         }
     );
 	
-	// getFlightDateByFlightID Ends
+	// getFlightDateNumberByFlightID Ends
 	
 	
 	

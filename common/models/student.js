@@ -71,23 +71,25 @@ module.exports = function(Student) {
   
   // Get Student Details for Flight Buddies Starts
   
-  Student.getstudentDetails = function(sID, cb){
+  Student.getStudentDetailsByStudentID = function(studID, cb){
 	console.log("####################");
-    console.log("STUDENT ID RECEIVED: " +sID);
+    console.log("STUDENT ID RECEIVED: " +studID);
     console.log("####################");
-	Student.findOne({where: {and: [{id:sID}]}, fields:{first_name:true,last_name:true,gender:true,school_email:true}},function(err, instance){
+	Student.findOne({where: {and: [{id:studID}]}, fields:{first_name:true,last_name:true,gender:true,school_email:true}},function(err, instance){
       var response;
       response = instance;
       cb(null, response);
       console.log(response);
     });
   };
+  
+  
   Student.remoteMethod(
-    'getstudentDetails',
+    'getStudentDetailsByStudentID',
     {
-      http: {path: '/getstudentDetails', verb: 'get'},
+      http: {path: '/getStudentDetailsByStudentID', verb: 'get'},
       accepts:{arg: 'sID', type:'string' },
-      returns:{type:'array', root:true}
+      returns:{type:'object', root:true}
     }
   );
   

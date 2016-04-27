@@ -86,7 +86,7 @@ module.exports = function(Student) {
     'getstudentDetails',
     {
       http: {path: '/getstudentDetails', verb: 'get'},
-      accepts:{arg: 'sID', type:'string', http: { source: 'body' } },
+      accepts:{arg: 'sID', type:'string' },
       returns:{type:'array', root:true}
     }
   );

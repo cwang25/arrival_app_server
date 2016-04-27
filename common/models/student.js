@@ -75,7 +75,7 @@ module.exports = function(Student) {
 	console.log("####################");
     console.log("STUDENT ID RECEIVED: " +sID);
     console.log("####################");
-	Student.find({where: {and: [{id:sID}]}, fields:{first_name:true,last_name:true,gender:true,school_email:true}},function(err, instance){
+	Student.findOne({where: {and: [{id:sID}]}, fields:{first_name:true,last_name:true,gender:true,school_email:true}},function(err, instance){
       var response;
       response = instance;
       cb(null, response);

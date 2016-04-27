@@ -103,6 +103,9 @@ module.exports = function(FlightInfo){
 
 	FlightInfo.getFlightIDByStudentID = function(stud_id, cb){
 		console.log('Student ID' +stud_id);
+		if(stud_id == undefined){
+			stud_id = -1;
+		}
 		
 		FlightInfo.findOne({where: {and: [{student_id:stud_id}]}, fields:{id:true}},function(err, instance){
 			var response;

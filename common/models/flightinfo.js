@@ -79,8 +79,8 @@ module.exports = function(FlightInfo){
 		console.log("IN FLIGHT BUDDIES FUNCTION");
 		console.log("FLIGHT NUMBER: " +fltNum);
 		console.log("FLIGHT DATE: " +fltDate);
-		//FlightInfo.find({where: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{student_id:true}, function(err, instance){
-		FlightInfo.find({where: {and: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{student_id:true}},function(err, instance){
+		FlightInfo.find({where: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{student_id:true}, function(err, instance){
+		// FlightInfo.find({where: {and: [{flightNum:fltNum}, {flightDate: fltDate}]}, fields:{student_id:true}},function(err, instance){
 			var response;
 			response = instance;
 			cb(null, response);
@@ -92,7 +92,7 @@ module.exports = function(FlightInfo){
         'getFlightBuddies',
         {
             http: {path: '/getFlightBuddies', verb: 'get'},
-            accepts: {arg: 'flight_info', type: 'object', http: { source: 'body' } },
+            accepts: {arg: 'flight_info', type: 'object'},
             returns: {type: 'array', root: true}
         }
     );

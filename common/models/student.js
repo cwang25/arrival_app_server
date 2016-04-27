@@ -68,6 +68,32 @@ module.exports = function(Student) {
       console.log(response);
     });
   };
+  
+  // Get Student Details for Flight Buddies Starts
+  
+  Student.getstudentDetails = function(sID, cb){
+    console.log("STUDENT ID RECEIVED: " +sID);
+    Student.find({where: {and: [{id:sID}]}, fields:{first_name:true,last_name:true,gender:true,school_email:true}},function(err, instance){
+      var response;
+      response = instance;
+      cb(null, response);
+      console.log(response);
+    });
+  };
+  Student.remoteMethod(
+    'getstudentDetails',
+    {
+      http: {path: '/getstudentDetails', verb: 'get'},
+      accepts:{arg: 'sID', type:'string', http: { source: 'body' } },
+      returns:{type:'array', root:true}
+    }
+  );
+  
+  // Get Student Details for Flight Buddies Ends
+  
+  
+  
+  
   Student.remoteMethod(
     'authenticateUser',
     {

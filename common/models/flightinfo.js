@@ -44,7 +44,7 @@ module.exports = function(FlightInfo){
             returns: {type: 'object', root: true}
         }
     );
-	
+
 	
 	// getFlightDateNumberByFlightID Starts
 	

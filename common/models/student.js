@@ -72,8 +72,10 @@ module.exports = function(Student) {
   // Get Student Details for Flight Buddies Starts
   
   Student.getstudentDetails = function(sID, cb){
+	console.log("####################");
     console.log("STUDENT ID RECEIVED: " +sID);
-    Student.find({where: {and: [{id:sID}]}, fields:{first_name:true,last_name:true,gender:true,school_email:true}},function(err, instance){
+    console.log("####################");
+	Student.find({where: {and: [{id:sID}]}, fields:{first_name:true,last_name:true,gender:true,school_email:true}},function(err, instance){
       var response;
       response = instance;
       cb(null, response);
